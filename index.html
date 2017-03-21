@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+    <!--  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" /> -->
+    <!-- <meta name="viewport" content="initial-scale=1, maximum-scale=1"> -->
+<!--     <meta name="viewport" content="user-scalable=no, initial-scale=1,
+        maximum-scale=1, minimum-scale=1" /> -->
+
+
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-px" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/slick.css">
+    <link rel="stylesheet" type="text/css" href="css/slick-theme.css">
+    <!-- Compiled and minified CSS -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css"> -->
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
+    <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+    <script src="js/slick.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <!-- Compiled and minified JavaScript
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>  -->
+    <title>Primax</title>
+</head>
+
+<body>
+    <div data-role="page" class="page-container" id="main-page">
+        <div role="main" class="ui-content" data-theme="a">
+            <img src="img/agente-primax.png" class="logo-main" />
+            <div class="form-holder">
+                <input id="txt_cedula" placeholder="Usuario" class=" ui-btn-icon-right" />
+                <button onclick="changePage()" class="btn-ingresar">INGRESAR</button>
+            </div>
+            <img src="img/primax-logo.png" class="horizontal-center img-logo" />
+        </div>
+    </div>
+    <!--
+
+
+    MAIN SCREEN
+
+
+    -->
+    <div data-role="page" class="page-container" id="page2">
+      <!--
+        <div data-role="header" class="header-style" data-position="fixed"  data-tap-toggle="false">
+
+            <h1 class="username">&nbsp;</h1>
+        </div>
+      -->
+        <div role="main" class="ui-content">
+            <div class="login-wrapper">
+                <img class="avatar-login" src="img/personaje1.png" />
+                    <img class="button-seleccionar" onclick="showCarousel()" src="img/btnSeleccionar.png" />
+                <div class="burbuja1" > Bienvenido Agente <span id="username_label" class="highlighted-text"></span></div>
+                <div class="burbuja2" > Perteneces<br/>al grupo<br/><span id="group_label" class="highlighted-text"></span></div>
+            </div>
+            <div class="carousel-wrapper">
+              <section class="regular slider">
+                <div>
+                  <img src="img/personaje1.png" onclick="selectAvatar(1)">
+                </div>
+                <div>
+                  <img src="img/personaje2.png" onclick="selectAvatar(2)">
+                </div>
+                <div>
+                  <img src="img/personaje3.png" onclick="selectAvatar(3)">
+                </div>
+                <div>
+                  <img src="img/personaje4.png" onclick="selectAvatar(4)">
+                </div>
+                <div>
+                  <img src="img/personaje5.png" onclick="selectAvatar(5)">
+                </div>
+              </section>
+            </div>
+            <div class="login-middle-section">
+                <div class="time-container">
+                </div>
+                <div class="date-container">
+                    <div class="fecha-text"></div>
+                    <div>Guayaquil, Ecuador</div>
+                </div>
+            </div>
+            <div>
+                <!--  <ul data-role="listview" class="lv_location_holder">
+                    <li><a href="#" class="lv_location">SELECCIONAR ESTACIÓN</a></li>
+                    <li><a href="#" class="lv_location">SELECCIONAR ISLA</a></li>
+                </ul> -->
+                <button onclick="gotoCity()" class="btn-continuar">Continuar</button>
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" class="footer">
+            <img src="img/agente-mini.png" class="horizontal-center" />
+        </div>
+    </div>
+    <!--
+
+
+    CITIES SCREEN
+
+
+    -->
+    <div data-role="page" class="page-container" id="cities-screen">
+        <div data-role="header" class="header-style">
+        <a href="#" data-rel="back" class="btn-back" ></a>
+            <h1>Ciudad</h1>
+        </div>
+        <div role="main" class="ui-content">
+            <form class="ui-filterable">
+                <input id="myFilter" data-type="search" placeholder="Buscar ciudad...">
+            </form>
+            <ul id="listaCities" data-role="listview" data-filter="true" data-input="#myFilter">
+            </ul>
+        </div>
+        <div  data-role="footer" data-position="fixed" data-tap-toggle="false" data-enhance="false" class="footer">
+            <img src="img/agente-mini.png" class="horizontal-center" />
+        </div>
+    </div>
+    <!--
+
+
+    STATION SCREEN
+
+
+    -->
+    <div data-role="page" class="page-container" id="station-screen">
+        <div data-role="header" class="header-style">
+        <a href="#" data-rel="back" class="btn-back" ></a>
+            <h1>Estación</h1>
+        </div>
+        <div role="main" class="ui-content">
+            <form class="ui-filterable">
+                <input id="myFilterStation" data-type="search" placeholder="Buscar estación...">
+            </form>
+            <ul id="#lv-stations" data-role="listview" data-filter="true" data-input="#myFilterStation" class="lv-stations">
+                <!-- <li class="list-item-lnk"><a href="#">Av. F. Orellana</a></li>
+                <li class="list-item-lnk"><a href="#">Av. Quito</a></li>
+                <li class="list-item-lnk"><a href="#">Via Samborondon</a></li> -->
+            </ul>
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" class="footer">
+            <img src="img/agente-mini.png" class="horizontal-center" />
+        </div>
+    </div>
+    <!--
+
+
+    ISLAND SCREEN
+
+
+    -->
+    <div data-role="page" class="page-container" id="islands-screen">
+        <div data-role="header" class="header-style"  data-position="fixed">
+        <a href="#" data-rel="back" class="btn-back" ></a>
+            <h1>Isla</h1>
+        </div>
+        <div role="main" class="ui-content">
+            <form class="ui-filterable">
+                <input id="myFilterIslands" data-type="search" placeholder="Buscar isla...">
+            </form>
+            <ul data-role="listview" data-filter="true" data-input="#myFilterIslands">
+                <li class="list-item-lnk" data-id="1"><a href="#">Isla 1 </a></li>
+                <li class="list-item-lnk" data-id="2"><a href="#">Isla 2</a></li>
+                <li class="list-item-lnk" data-id="3"><a href="#">Isla 3 </a></li>
+                <li class="list-item-lnk" data-id="4"><a href="#">Isla 4 </a></li>
+                <li class="list-item-lnk" data-id="5"><a href="#">Isla 5 </a></li>
+                <li class="list-item-lnk" data-id="6"><a href="#">Isla 6 </a></li>
+                <li class="list-item-lnk" data-id="7"><a href="#">Isla 7 </a></li>
+                <li class="list-item-lnk" data-id="8"><a href="#">Isla 8 </a></li>
+                <li class="list-item-lnk" data-id="9"><a href="#">Isla 9 </a></li>
+                <li class="list-item-lnk" data-id="10"><a href="#">Isla 10 </a></li>
+                <li class="list-item-lnk" data-id="11"><a href="#">Isla 11 </a></li>
+                <li class="list-item-lnk" data-id="12"><a href="#">Isla 12 </a></li>
+                <li class="list-item-lnk" data-id="13"><a href="#">Isla 13 </a></li>
+                <li class="list-item-lnk" data-id="14"><a href="#">Isla 14 </a></li>
+                <li class="list-item-lnk" data-id="15"><a href="#">Isla 15 </a></li>
+            </ul>
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" class="footer">
+            <img src="img/agente-mini.png" class="horizontal-center" />
+        </div>
+    </div>
+
+    <!--
+
+
+    MESSAGE PRINT
+
+
+    -->
+    <div data-role="page" class="page-container" id="message-screen1"  data-add-back-btn="true">
+      <h1>¡NO APAGUES EL MOTOR. HASTA EL MOMENTO DE EMPEZAR CON EL DESPACHO DE COMBUSTIBLE!</h1>
+      <div onclick="jumPrint1()">AVANZAR</div>
+    </div>
+
+    <!--
+
+
+    QUESTIONS SCREEN
+
+
+    -->
+    <div data-role="page" class="page-container" id="questions-screen"  data-add-back-btn="true">
+        <div data-role="header" class="header-style"  data-position="fixed"  data-tap-toggle="false" >
+        <a href="#" data-rel="back" class="btn-back" ></a>
+            <h1>Preguntas</h1>
+            <a href="#" class="ui-btn-right" id="btn-camera" data-theme="b"><img src="img/camara.png" style="height:30px;width:auto"/></a>
+        </div>
+        <div role="main" class="ui-content form-container">
+        <div style="width:100%;padding:5px;">
+          <strong>ATENCIÓN:</strong> ¡NO APAGUES EL MOTOR. HASTA EL MOMENTO DE EMPEZAR CON EL DESPACHO DE COMBUSTIBLE! (ESTO SIRVE PARA PODER RESPONDER LA PREGUNTA 2)
+        </div>
+        <form id="form_questions" >
+
+          <div class="question-holder">
+              1. AL LLEGAR A LA ESTACIÓN EL SALUDO FUE: BUENOS DIAS/TARDES/NOCHES BIENVENIDO A PRIMAX. ¿CUÁNTO LE PONEMOS DE SUPER?
+          </div>
+          <div class="answers-holder">
+              <label>
+                  <input type="radio" name="question1" value="SI" />Si
+              </label>
+              <label>
+                  <input type="radio" name="question1" value="NO" />No
+              </label>
+          </div>
+          <br/>
+          <div class="question-holder">
+              2. ¿TE PIDIERON APAGAR EL MOTOR ANTES DE TANQUEAR?
+          </div>
+          <div class="answers-holder">
+              <label>
+                  <input type="radio" name="question2" value="SI" />Si
+              </label>
+              <label>
+                  <input type="radio" name="question2" value="NO" />No
+              </label>
+          </div>
+          <br/>
+          <div class="question-holder">
+              3. ¿TE INDICARON  MARCADOR EN CERO ANTES DE EMPEZAR A TANQUEAR?
+          </div>
+          <div class="answers-holder">
+              <label>
+                  <input type="radio" name="question3" value="SI" />Si
+              </label>
+              <label>
+                  <input type="radio" name="question3" value="NO" />No
+              </label>
+          </div>
+          <br/>
+          <div class="question-holder">
+              4. ¿QUÉ SERVICIO ADICIONAL TE OFRECIERON?
+          </div>
+          <div class="answers-holder">
+              <fieldset data-role="controlgroup" data-iconpos="right">
+                  <input type="checkbox" name="checkbox-h-4a" id="checkbox-h-4a">
+                  <label for="checkbox-h-4a">	LIMPIEZA DE PARABRIZAS</label>
+                  <input type="checkbox" name="checkbox-h-4b" id="checkbox-h-4b">
+                  <label for="checkbox-h-4b">	TACHO PARA BOTAR DESPERDICIOS</label>
+                  <input type="checkbox" name="checkbox-h-4c" id="checkbox-h-4c">
+                  <label for="checkbox-h-4c">	VENTA DE LUBRICANTES</label>
+                  <input type="checkbox" name="checkbox-h-4d" id="checkbox-h-4d">
+                  <label for="checkbox-h-4d">	NINGUNO</label>
+              </fieldset>
+          </div>
+          <br/>
+          <div class="question-holder">
+              5. ¿TE OFRECIERON ALGUNA PROMOCIÓN?
+          </div>
+          <div class="answers-holder">
+              <label>
+                  <input type="radio" name="question5" value="SI" />Si
+              </label>
+              <label>
+                  <input type="radio" name="question5" value="NO" />No
+              </label>
+              <label>
+                  <textarea cols="40" rows="8" name="textarea-5" id="txt_promocion" placeholder="CUÁL?"></textarea>
+              </label>
+          </div>
+          <br/>
+          <div class="question-holder">
+              6.	ACERCA DE LA FACTURACIÓN:
+          </div>
+          <div class="answers-holder">
+              <div class="answers-holder">
+                  <label>
+                      <input type="radio" name="question6" value="SE DESPIDIÓ DICIENDO: GRACIAS POR VENIR A PRIMAX" />	ME PIDIERON DATOS PARA EMITIR LA FACTURA
+                  </label>
+                  <label>
+                      <input type="radio" name="question6" value="ME PREGUNTARON SI QUERÍA FACTURA CON DATOS O COMSUMIDOR FINAL" />ME PREGUNTARON SI QUERÍA FACTURA CON DATOS O COMSUMIDOR FINAL
+                  </label>
+                  <label>
+                      <input type="radio" name="question6" value="ME PREGUNTARON SI QUERÍA FACTURA" />ME PREGUNTARON SI QUERÍA FACTURA
+                  </label>
+                  <label>
+                      <input type="radio" name="question6" value="SI NO PIDO FACTURA NO LA ENTREGAN" />SI NO PIDO FACTURA NO LA ENTREGAN
+                  </label>
+              </div>
+          </div>
+          <br/>
+          <div class="question-holder">
+              7. SE DESPIDIÓ DICIENDO: “GRACIAS POR VENIR A PRIMAX”
+          </div>
+          <div class="answers-holder">
+              <label>
+                  <input type="radio" name="question7" value="SI" />Si
+              </label>
+              <label>
+                  <input type="radio" name="question7" value="NO" />No
+              </label>
+          </div>
+          <br/>
+          <div class="question-holder">
+              8. ¿CUÁL ERA EL ASPECTO GENERAL DEL PROMOTOR?
+          </div>
+          <div class="answers-holder">
+            <div class="answers-holder">
+                <label>
+                    <input type="radio" name="question8" value="UNIFORME COMPLETO Y EN BUEN ESTADO" />UNIFORME COMPLETO Y EN BUEN ESTADO
+                </label>
+                <label>
+                    <input type="radio" name="question8" value="UNIFORME COMPLETO PERO NO ESTABA EN BUEN ESTADO" />UNIFORME COMPLETO PERO NO ESTABA EN BUEN ESTADO
+                </label>
+                <label>
+                    <input type="radio" name="question8" value="NO TENIA EL UNIFORME COMPLETO" />NO TENIA EL UNIFORME COMPLETO
+                </label>
+                <label>
+                    <input type="radio" name="question8" value="NO TENÍA EL UNIFORME COMPLETO Y NO ESTABA EN BUEN ESTADO" />NO TENÍA EL UNIFORME COMPLETO Y NO ESTABA EN BUEN ESTADO
+                </label>
+            </div>
+              <label>
+                  <textarea cols="40" rows="8" name="textarea-8" id="txt_aspecto_promotor" placeholder="COMENTARIOS"></textarea>
+              </label>
+          </div>
+          <br/>
+          <div class="question-holder">
+              9. ¿CUÁL ERA LA UBICACIÓN DEL PROMOTOR CUANDO LLEGASTE A LA ESTACIÓN?
+          </div>
+          <label>
+                  <textarea cols="40" rows="8" name="textarea-9" id="txt_ubicacion_promotor"></textarea>
+          </label>
+
+
+
+            <div class="send-holder img-holder">
+                    <img style="display:none;width:90%; margin:auto;" id="smallImage" src="" />
+                    <img style="display:none;" id="largeImage" src="" />
+            </div>
+
+
+            </form>
+            <div class="send-holder">
+            <button class="btn-continuar" id="btn-send-form">Enviar</button>
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" class="footer">
+            <img src="img/agente-mini.png" class="horizontal-center" />
+        </div>
+    </div>
+
+    <!--
+
+
+    MESSAGE PRINT
+
+
+    -->
+    <div data-role="page" class="page-container" id="message-screen1"  data-add-back-btn="true">
+      <h1>ESTAMOS GUARDANDO LA INFO...</h1>
+    </div>
+
+    <!--
+
+
+    THANKS SCREEN
+
+
+    -->
+    <div data-role="page" class="page-container" id="thanks-screen" >
+        <div data-role="header" class="header-style">
+            <h1 class="username"></h1>
+        </div>
+        <div role="main" class="ui-content">
+         <div class="header-img">
+                <img src="img/thanks.png" class="top-header-img" />
+            </div>
+
+            <div class="final-container">
+                <!-- <img src="img/thanks.png" /> -->
+                <button class="btn-continuar" onclick="goHome()">Nueva encuesta</button>
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" class="footer">
+            <img src="img/agente-mini.png" class="horizontal-center" />
+        </div>
+    </div>
+    <script type="text/javascript">
+    app.initialize();
+    </script>
+</body>
+
+
+</html>
