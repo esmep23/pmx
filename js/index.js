@@ -35,7 +35,8 @@ var station1_name;
 var station2_id;
 var station2_name;
 
-
+var loaded_cities=false;
+var loaded_stations=false;
 
 var total_pics = 0;
 var j =0 ;
@@ -204,7 +205,7 @@ function hideCarousel(){
 function ScaleContentToDevice() {
     scroll(0, 0);
     var content = $.mobile.getScreenHeight() - $(".ui-header").outerHeight() - $(".ui-footer").outerHeight() - $(".ui-content").outerHeight() + $(".ui-content").height();
-    $(".ui-content").height(content);
+    $(".ui-content").height(content-300);
 }
 
 function changePage() {
