@@ -353,6 +353,6 @@ box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.5);
 }
 
 .ui-content{
-  overflow: hidden;
-  background-color: white;
+  overflow: hidden!important;
+  background-color: white!important;
 }
