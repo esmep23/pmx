@@ -1,3 +1,6 @@
+*{
+  text-shadow: none;
+}
 @font-face {
   font-family: 'UniversLTStd';
   src: url('UniversLTStd.eot?#iefix') format('embedded-opentype'),  url('UniversLTStd.otf')  format('opentype'),
@@ -343,4 +346,11 @@ box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.5);
   right: 0px;
   height: 20px;
   z-index: 99999;
+}
+.page-container{
+  display: none;
+}
+
+.message-screen1{
+  display: block;
 }
