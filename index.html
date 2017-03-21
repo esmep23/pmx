@@ -216,8 +216,16 @@
 
     -->
     <div data-role="page" class="page-container" id="message-screen1">
-      <h1>¡NO APAGUES EL MOTOR. HASTA EL MOMENTO DE EMPEZAR CON EL DESPACHO DE COMBUSTIBLE!</h1>
-      <div onclick="jumPrint1()">AVANZAR</div>
+        <div data-role="header" class="header-style">
+        <a href="#" data-rel="back" class="btn-back" ></a>
+            <h1>Ciudad</h1>
+        </div>
+        <div role="main" class="ui-content">
+          <div style="width:100%;padding:5px;">
+          <strong>ATENCIÓN:</strong> ¡NO APAGUES EL MOTOR. HASTA EL MOMENTO DE EMPEZAR CON EL DESPACHO DE COMBUSTIBLE! 
+        </div>
+          <button onclick="jumPrint1()" class="btn-continuar">Ir a las Preguntas</button>
+        </div>
     </div>
 
     <!--
@@ -234,13 +242,11 @@
             <a href="#" class="ui-btn-right" id="btn-camera" data-theme="b"><img src="img/camara.png" style="height:30px;width:auto"/></a>
         </div>
         <div role="main" class="ui-content form-container">
-        <div style="width:100%;padding:5px;">
-          <strong>ATENCIÓN:</strong> ¡NO APAGUES EL MOTOR. HASTA EL MOMENTO DE EMPEZAR CON EL DESPACHO DE COMBUSTIBLE! (ESTO SIRVE PARA PODER RESPONDER LA PREGUNTA 2)
-        </div>
+        
         <form id="form_questions" >
 
           <div class="question-holder">
-              1. AL LLEGAR A LA ESTACIÓN EL SALUDO FUE: BUENOS DIAS/TARDES/NOCHES BIENVENIDO A PRIMAX. ¿CUÁNTO LE PONEMOS DE SUPER?
+              1. ¿EL PROMOTOR ESTABA EN SU PUESTO DE TRABAJO CUANDO LLEGASTE A LA ESTACIÓN?
           </div>
           <div class="answers-holder">
               <label>
@@ -252,7 +258,7 @@
           </div>
           <br/>
           <div class="question-holder">
-              2. ¿TE PIDIERON APAGAR EL MOTOR ANTES DE TANQUEAR?
+              2. AL LLEGAR A LA ESTACIÓN EL SALUDO FUE: <b>"BUENOS DIAS/TARDES/NOCHES BIENVENIDO A PRIMAX. ¿CUÁNTO LE PONEMOS DE SUPER?"</b>
           </div>
           <div class="answers-holder">
               <label>
@@ -264,7 +270,7 @@
           </div>
           <br/>
           <div class="question-holder">
-              3. ¿TE INDICARON  MARCADOR EN CERO ANTES DE EMPEZAR A TANQUEAR?
+              3. ¿TE PIDIERON APAGAR EL MOTOR ANTES DE TANQUEAR?
           </div>
           <div class="answers-holder">
               <label>
@@ -276,7 +282,19 @@
           </div>
           <br/>
           <div class="question-holder">
-              4. ¿QUÉ SERVICIO ADICIONAL TE OFRECIERON?
+              4. ¿TE INDICARON MARCADOR EN CERO ANTES DE EMPEZAR A TANQUEAR?
+          </div>
+          <div class="answers-holder">
+              <label>
+                  <input type="radio" name="question3" value="SI" />Si
+              </label>
+              <label>
+                  <input type="radio" name="question3" value="NO" />No
+              </label>
+          </div>
+          <br/>
+          <div class="question-holder">
+              5. ¿QUÉ SERVICIO ADICIONAL TE OFRECIERON?
           </div>
           <div class="answers-holder">
               <fieldset data-role="controlgroup" data-iconpos="right">
@@ -292,7 +310,7 @@
           </div>
           <br/>
           <div class="question-holder">
-              5. ¿TE OFRECIERON ALGUNA PROMOCIÓN?
+              6. ¿TE OFRECIERON ALGUNA PROMOCIÓN?
           </div>
           <div class="answers-holder">
               <label>
@@ -307,12 +325,12 @@
           </div>
           <br/>
           <div class="question-holder">
-              6.	ACERCA DE LA FACTURACIÓN:
+              7.	ACERCA DE LA FACTURACIÓN:
           </div>
           <div class="answers-holder">
               <div class="answers-holder">
                   <label>
-                      <input type="radio" name="question6" value="SE DESPIDIÓ DICIENDO: GRACIAS POR VENIR A PRIMAX" />	ME PIDIERON DATOS PARA EMITIR LA FACTURA
+                      <input type="radio" name="question6" value="ME PIDIERON DATOS PARA EMITIR LA FACTURA" />	ME PIDIERON DATOS PARA EMITIR LA FACTURA
                   </label>
                   <label>
                       <input type="radio" name="question6" value="ME PREGUNTARON SI QUERÍA FACTURA CON DATOS O COMSUMIDOR FINAL" />ME PREGUNTARON SI QUERÍA FACTURA CON DATOS O COMSUMIDOR FINAL
@@ -321,13 +339,13 @@
                       <input type="radio" name="question6" value="ME PREGUNTARON SI QUERÍA FACTURA" />ME PREGUNTARON SI QUERÍA FACTURA
                   </label>
                   <label>
-                      <input type="radio" name="question6" value="SI NO PIDO FACTURA NO LA ENTREGAN" />SI NO PIDO FACTURA NO LA ENTREGAN
+                      <input type="radio" name="question6" value="TUVE QUE PEDIR LA FACTURA PARA QUE ME LA ENTREGUEN" />TUVE QUE PEDIR LA FACTURA PARA QUE ME LA ENTREGUEN
                   </label>
               </div>
           </div>
           <br/>
           <div class="question-holder">
-              7. SE DESPIDIÓ DICIENDO: “GRACIAS POR VENIR A PRIMAX”
+              8. SE DESPIDIÓ DICIENDO: <b>"GRACIAS POR VENIR A PRIMAX"</b>
           </div>
           <div class="answers-holder">
               <label>
@@ -339,7 +357,7 @@
           </div>
           <br/>
           <div class="question-holder">
-              8. ¿CUÁL ERA EL ASPECTO GENERAL DEL PROMOTOR?
+              9. ¿CUÁL ERA EL ASPECTO GENERAL DEL PROMOTOR?
           </div>
           <div class="answers-holder">
             <div class="answers-holder">
@@ -362,11 +380,27 @@
           </div>
           <br/>
           <div class="question-holder">
-              9. ¿CUÁL ERA LA UBICACIÓN DEL PROMOTOR CUANDO LLEGASTE A LA ESTACIÓN?
+              10. COMO CALIFICAS LA ATENCIÓN RECIBIDA EN GENERAL
           </div>
-          <label>
-                  <textarea cols="40" rows="8" name="textarea-9" id="txt_ubicacion_promotor"></textarea>
-          </label>
+          <div class="answers-holder">
+            <div class="answers-holder">
+                <label>
+                    <input type="radio" name="question8" value="EXCELENTE" />EXCELENTE
+                </label>
+                <label>
+                    <input type="radio" name="question8" value="MUY BUENA" />MUY BUENA
+                </label>
+                <label>
+                    <input type="radio" name="question8" value="PODRÍAN MEJORAR" />PODRÍAN MEJORAR
+                </label>
+                <label>
+                    <input type="radio" name="question8" value="MALA" />MALA
+                </label>
+            </div>
+              <label>
+                  <textarea cols="40" rows="8" name="textarea-8" id="txt_aspecto_promotor" placeholder="COMENTARIOS"></textarea>
+              </label>
+          </div>
 
 
 
