@@ -298,12 +298,12 @@ function goHome() {
 }
 
 function gotoCity() {
-    $('#cities-screen .list-item-lnk').click(function() {
+   /* $('#cities-screen .list-item-lnk').click(function() {
         //$.mobile.changePage("#station-screen");
         s_city = $(this).attr('data-id');
         gotoStation();
         //$('#cities-screen .list-item-lnk').unbind("click");
-    });
+    });*/
     $.mobile.changePage("#cities-screen", {
         transition: "slide"
     });
@@ -484,10 +484,6 @@ $(document).on("pagebeforeshow", "#questions-screen", function() {
       if(sendButtonEnabled){
         uploadPhoto();
 
-        $.mobile.changePage("#message-screen2", {
-            transition: "slide"
-        });
-
       }
       $('#btn-send-form').unbind("click");
     });
@@ -607,6 +603,11 @@ function uploadPhoto() {
 
 
 function fileUpload(fileUrl, record_id) {
+
+        $.mobile.changePage("#message-screen2", {
+            transition: "slide"
+        });
+
         //alert(record_id);
         var options = new FileUploadOptions();
         options.fileKey = "file";
@@ -686,26 +687,60 @@ $(document).on("pagebeforeshow", "#thanks-screen", function() {
     //alert("Gracias Agente!");
 });
 
-$(document).on("pagebeforeshow", "#station-screen", function() {
+$(document).on("pagebeforeshow", "#cities-screen", function() { 
+    loaded_stations = false;
+    if( loaded_cities ) return;
+    loaded_cities = true;
 
     //alert(2);
-    //$.mobile.loading('show');
-    //$('.lv-stations').html('');
+    $.mobile.loading('show');
+    $('.lv-stations').html('');
+    $.post("http://www.ciancorp.com/primax/services/getCities.php")
+        .done(function(submitResponse) {
+            $.mobile.loading('hide');
+            $.each(submitResponse, function(i, item) {
+                $('#listaCities').append('<li class="list-item-lnk" data-id="' + item.id_city + '"><a href="#">' + item.name + '</a></li>').listview("refresh");
+            });
 
-    /*
+            $('#cities-screen .list-item-lnk').click(function() {
+                //$.mobile.changePage("#station-screen");
+                console.log($(this).attr('data-id'));
+                s_city = $(this).attr('data-id');
+                console.log(s_city);
+                gotoStation();
+            });
+        });
+
+
+
+});
+
+
+
+
+
+
+
+
+
+
+$(document).on("pagebeforeshow", "#station-screen", function() {
+    if( loaded_stations ) return;
+    loaded_stations = true;
+
+    //alert(2);
+    $.mobile.loading('show');
+    $('.lv-stations').html('');
     $.post("http://www.ciancorp.com/primax/services/getStations.php", {
             'city': s_city
         })
         .done(function(submitResponse) {
             $.mobile.loading('hide');
             $.each(submitResponse, function(i, item) {
-                //$('.lv-stations').append('<li class="list-item-lnk" data-id="' + item.id_station + '"><a href="#">' + item.name + '</a></li>').listview("refresh");
-            }).complete(function() {
-                $('#lv-stations').listview("refresh");
-            });;
+                $('.lv-stations').append('<li class="list-item-lnk" data-id="' + item.id_station + '"><a href="#">' + item.name + '</a></li>').listview("refresh");
+            })
 
         });
-        */
 
 
     $('#station-screen ').on("click", ".list-item-lnk", function() {
@@ -713,8 +748,6 @@ $(document).on("pagebeforeshow", "#station-screen", function() {
         s_station = $(this).attr('data-id');
         //alert("llenar las preguntas"+s_station);
         gotoIsland();
-
-        $('#station-screen ').unbind("click");
     });
 
 
