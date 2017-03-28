@@ -245,7 +245,7 @@ function changePage() {
                 $('#username_label').html(response.user_name);
                 $('#group_label').html(response.grupo_name);
                 //carga ciudades
-                $('#listaCities').append('<li class="list-item-lnk" data-id="'+city_id+'"> <a href="#"> '+city_name+'</a></li>');
+                //$('#listaCities').append('<li class="list-item-lnk" data-id="'+city_id+'"> <a href="#"> '+city_name+'</a></li>');
                 //$('#listaCities')
 
                 $('.lv-stations').append('<li class="list-item-lnk" data-id="' + station1_id + '"><a href="#">' + station1_name + '</a></li>');
