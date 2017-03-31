@@ -88,10 +88,10 @@
 		<splash src="res\screen\android\960x640.png" width="960" height="640" /> 
 		<splash src="res\screen\android\320x480.png" width="320" height="480" /> 
 		<splash src="res\screen\android\480x320.png" width="480" height="320" /> 
-		<splash src="config.xmlwww/res/screen/ios/Default-568h@2x.png" width="768" height="1024" /> 
-		<splash src="config.xmlwww/res/screen/ios/Default-568h@2x.png" width="1024" height="768" /> 
-		<splash src="config.xmlwww/res/screen/ios/Default-568h@2x.png" width="1536" height="2048" /> 
-		<splash src="config.xmlwww/res/screen/ios/Default-568h@2x.png" width="2048" height="1536" /> 
+		<splash src="res/screen/ios/Default-568h@2x.png" width="768" height="1024" /> 
+		<splash src="res/screen/ios/Default-568h@2x.png" width="1024" height="768" /> 
+		<splash src="res/screen/ios/Default-568h@2x.png" width="1536" height="2048" /> 
+		<splash src="res/screen/ios/Default-568h@2x.png" width="2048" height="1536" /> 
 		</platform>
 		<platform name="android">
 		<icon src="res\icon\android\icon-36.png" qualifier="ldpi" />
@@ -114,7 +114,7 @@
 		<splash src="res\screen\android\1920x1280.png" qualifier="" />
 		</platform>
 		<platform name="winphone">
-		<icon src="config.xmlwww/res/icon/windows-phone/icon-173-tile.png" />
+		<icon src="res/icon/windows-phone/icon-173-tile.png" />
 		</platform>
 		 <icon src="icon.png" />
 		<allow-intent href="http://*/*" />
