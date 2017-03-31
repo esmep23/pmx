@@ -92,7 +92,7 @@
         
 
     
-<platform name="ios">
+	<platform name="ios">
 		<icon src="res/icon/ios/Icon.png.png" width="57" height="57" />
 		<icon src="res/icon/ios/Icon-72@2x.png.png" width="144" height="144" />
 		<icon src="res/icon/ios/Icon-72.png.png" width="72" height="72" />
@@ -122,8 +122,8 @@
 		<splash src="res/screen/ios/Default-568h@2x.png" width="1024" height="768" /> 
 		<splash src="res/screen/ios/Default-568h@2x.png" width="1536" height="2048" /> 
 		<splash src="res/screen/ios/Default-568h@2x.png" width="2048" height="1536" /> 
-		</platform>
-		<platform name="android">
+	</platform>
+	<platform name="android">
 		<icon src="res/icon/android/icon-36.png" qualifier="ldpi" />
 		<icon src="res/icon/android/48x48.png" qualifier="mdpi" />
 		<icon src="res/icon/android/72x72.png" qualifier="hdpi" />
@@ -142,7 +142,7 @@
 		<splash src="res/screen/android/1600x960.png" qualifier="" />
 		<splash src="res/screen/android/1280x1920.png" qualifier="" />
 		<splash src="res/screen/android/1920x1280.png" qualifier="" />
-		</platform>
+	</platform>
 
     
 
