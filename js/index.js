@@ -497,7 +497,7 @@ var goHomeButtonEnabled=true;
 function uploadPhoto() {
 
 
-    if ((typeof $('input[name=question1]:checked').val() === 'undefined') || (typeof $('input[name=question2]:checked').val() === 'undefined') || (typeof $('input[name=question3]:checked').val() === 'undefined') || (typeof $('input[name=question5]:checked').val() === 'undefined') || (typeof $('input[name=question6]:checked').val() === 'undefined') || (typeof $('input[name=question7]:checked').val() === 'undefined') || (typeof $('input[name=question8]:checked').val() === 'undefined')) {
+    if ((typeof $('input[name=question1]:checked').val() === 'undefined') || (typeof $('input[name=question2]:checked').val() === 'undefined') || (typeof $('input[name=question3]:checked').val() === 'undefined') || (typeof $('input[name=question4]:checked').val() === 'undefined') || (typeof $('input[name=question5]:checked').val() === 'undefined') || (typeof $('input[name=question6]:checked').val() === 'undefined') || (typeof $('input[name=question7]:checked').val() === 'undefined') || (typeof $('input[name=question8]:checked').val() === 'undefined') || (typeof $('input[name=question9]:checked').val() === 'undefined') || (typeof $('input[name=question10]:checked').val() === 'undefined')) {
 
         //alert('Es necesario llenar todos los campos.');
         navigator.notification.alert("Es necesario llenar todos los campos.", function() {
