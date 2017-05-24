@@ -556,7 +556,7 @@ function uploadPhoto() {
                 while(j <= total_pics) {
 
                      //$('.img-holder img').each(function() {
-                             alert($(this).attr('src'));
+                             alert(($('.pic_'+j).attr('src'));
                              fileUpload($('.pic_'+j).attr('src'),response.status);
                      //});
                      j++;
@@ -628,8 +628,9 @@ function fileUpload(fileUrl, record_id) {
             'record_id': record_id
         };
         //alert(JSON.stringify(options.params));
-         alert("Voy a saveData.php");
+        alert("Voy a saveData.php");
         var uri = encodeURI("http://ciancorp.com/primax/services/saveData.php");
+        alert("Salio del saveData.php")
         $.mobile.loading('show');
         var ft = new FileTransfer();
         ft.upload(fileUrl, uri, win, fail, options);
