@@ -214,6 +214,7 @@ function changePage() {
 
     //LOGIN VALIDATION
     $(window).trigger('resize');
+    console.log('login');
     $.ajax({
         url: 'http://www.ciancorp.com/primax/services/login.php',
         type: "post",
@@ -223,6 +224,7 @@ function changePage() {
         },
         //dataType: "json",
         success: function(response) {
+    console.log(response);
 
             if (response!='null') {
                 var hora = hh_mm();
@@ -270,6 +272,7 @@ function changePage() {
             $.mobile.loading('hide');
         }, //Hide spinner
         error: function(error) {
+    console.log(error);
             $.mobile.loading('hide');
             navigator.notification.alert("Error en la conexion.", function() {
                 null
