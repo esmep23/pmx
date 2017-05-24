@@ -214,7 +214,6 @@ function changePage() {
 
     //LOGIN VALIDATION
     $(window).trigger('resize');
-    console.log('login');
     $.ajax({
         url: 'http://www.ciancorp.com/primax/services/login.php',
         type: "post",
@@ -224,7 +223,6 @@ function changePage() {
         },
         //dataType: "json",
         success: function(response) {
-    console.log(response);
 
             if (response!='null') {
                 var hora = hh_mm();
@@ -272,7 +270,6 @@ function changePage() {
             $.mobile.loading('hide');
         }, //Hide spinner
         error: function(error) {
-    console.log(error);
             $.mobile.loading('hide');
             navigator.notification.alert("Error en la conexion.", function() {
                 null
@@ -547,7 +544,7 @@ function uploadPhoto() {
             data: data,
             //dataType: "json",
             success: function(response) {
-               alert("response"+response.status);
+               //alert("response"+response.status);
               //  setTimeout(function(){
                 //  goHomeButtonEnabled=true;
               //  },3000);
@@ -559,14 +556,13 @@ function uploadPhoto() {
                 while(j <= total_pics) {
 
                      //$('.img-holder img').each(function() {
-                             alert(($('.pic_'+j).attr('src'));
+                             //alert($(this).attr('src'));
                              fileUpload($('.pic_'+j).attr('src'),response.status);
                      //});
                      j++;
 
                 }
                  } else {
-                     alert("No habia fotos");
                    setTimeout(function(){
                      sendButtonEnabled=true;
                    },4000);
@@ -607,14 +603,12 @@ function uploadPhoto() {
 
 
 function fileUpload(fileUrl, record_id) {
-    
-        alert("Entro al File Upload");
 
         $.mobile.changePage("#message-screen2", {
             transition: "slide"
         });
 
-        alert(record_id);
+        //alert(record_id);
         var options = new FileUploadOptions();
         options.fileKey = "file";
         options.fileName=fileUrl.substr(fileUrl.lastIndexOf('/')+1);
@@ -625,19 +619,17 @@ function fileUpload(fileUrl, record_id) {
         options.headers = {
             Connection: "close"
         }
-        alert("Settings photo complete");
+
         //alert(JSON.stringify(data));
         options.params = {
             'record_id': record_id
         };
         //alert(JSON.stringify(options.params));
-        alert("Voy a saveData.php");
+
         var uri = encodeURI("http://ciancorp.com/primax/services/saveData.php");
-        alert("Salio del saveData.php")
         $.mobile.loading('show');
         var ft = new FileTransfer();
         ft.upload(fileUrl, uri, win, fail, options);
-        alter("hago el upload de la photo");
 }
 
 
