@@ -544,7 +544,7 @@ function uploadPhoto() {
             data: data,
             //dataType: "json",
             success: function(response) {
-               //alert("response"+response.status);
+               alert("response"+response.status);
               //  setTimeout(function(){
                 //  goHomeButtonEnabled=true;
               //  },3000);
