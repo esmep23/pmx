@@ -4,7 +4,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.ciancorp.primax"
-        version   = "1.0.5">
+        version   = "1.0.6">
 	<!-- id android = com.primax.app -->
 	<!-- id ios = com.ciancorp.primax -->
     <name>Primax</name>
